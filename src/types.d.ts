@@ -8,18 +8,6 @@ type Decoration = keyof typeof DECORATION_CODES
 
 type Code = number[]
 
-type ColorCodes = {
-  [key in Color]: Code
-}
-
-type FontCodes = {
-  [key in Font]: Code
-}
-
-type DecorationCodes = {
-  [key in Decoration]: Code
-}
-
 type Styles = {
   font?: Font | Font[]
   decoration?: Decoration
@@ -27,14 +15,4 @@ type Styles = {
 
 type StyleFn = (text: string, styles?: Styles) => string
 
-export {
-  Code,
-  ColorCodes,
-  FontCodes,
-  DecorationCodes,
-  Color,
-  Font,
-  Decoration,
-  Styles,
-  StyleFn
-}
+export { Code, Color, Font, Decoration, Styles, StyleFn }
