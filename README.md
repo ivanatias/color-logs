@@ -5,13 +5,13 @@ Prettify Node.js console logs with some nice colors, easily.
 ## Install
 
 ```
-npm install @ia/color-logs
+npm install @ivnatsr/color-logs
 ```
 
 ## Basic usage
 
 ```javascript
-import { cl } from '@ia/color-logs'
+import { cl } from '@ivnatsr/color-logs'
 
 console.log(cl.blue('Hello, world!'))
 ```
