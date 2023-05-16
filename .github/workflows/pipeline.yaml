@@ -22,10 +22,8 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm ci
-      - name: Lint and check format for package
+      - name: Lint and check formatting
         run: npm run check
-      - name: Lint and check format for docs
-        run: npm run check:docs
 
   test:
     runs-on: ubuntu-20.04
