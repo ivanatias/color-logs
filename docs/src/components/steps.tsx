@@ -28,11 +28,11 @@ console.log(cl.blue('Hello, world!'), {
 export function Steps() {
   return (
     <section className='relative flex flex-col gap-8'>
-      <h2 className='text-slate-100 font-bold text-4xl'>Steps to use</h2>
+      <h2 className='text-4xl font-bold text-slate-100'>Steps to use</h2>
       <ul className='flex flex-col gap-8'>
         {STEPS.map((step, i) => (
-          <li className='flex flex-col gap-4 text-slate-200' key={i}>
-            <h3 className='font-bold text-2xl'>{step.title}</h3>
+          <li className='flex flex-col gap-4' key={i}>
+            <h3 className='text-2xl font-bold text-slate-200'>{step.title}</h3>
             <Code code={step.code} />
           </li>
         ))}

@@ -34,7 +34,7 @@ export function Header() {
             0 dependencies
           </p>
           <p className='text-sm underline text-slate-400 2xl:text-base'>
-            less than 1kb gzipped
+            less than 1kB gzipped
           </p>
         </div>
       </div>
