@@ -4,7 +4,7 @@
 
 @layer base {
   pre {
-    @apply overflow-x-auto border border-slate-500 p-4 pt-12 rounded-md;
+    @apply p-4 pt-12 overflow-x-auto border rounded-md border-slate-500 text-slate-200;
   }
 }
 
