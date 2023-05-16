@@ -11,7 +11,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  test:
+  check:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -22,14 +22,35 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm ci
-      - name: Lint and check format
+      - name: Lint and check format for package
         run: npm run check
+      - name: Lint and check format for docs
+        run: npm run check:docs
+
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Get changed files in the src folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v35
+        with:
+          files: src/**
+      - name: Install dependencies
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: npm ci
       - name: Run tests
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: npm run test
 
   publish:
     name: Publish to NPM
-    needs: test
+    needs: [test, check]
     # publish only when merged in main on original repo, not on PR
     if: github.event_name == 'push' && github.repository == 'ivanatias/color-logs' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
