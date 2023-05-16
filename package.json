@@ -31,7 +31,8 @@
     "check-format": "prettier --check './src/**/*.{js,ts}'",
     "check": "npm run lint && npm run check-format",
     "test": "vitest",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "check:docs": "cd docs && npm run check"
   },
   "keywords": [
     "console",
