@@ -60,11 +60,19 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - name: Get changed files in the src folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v35
+        with:
+          files: src/**
       - name: Install dependencies
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: npm ci
       - name: Build
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: npm run build
       - name: Publish
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: npm run semantic-release
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
