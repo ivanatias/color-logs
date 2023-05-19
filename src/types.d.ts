@@ -6,7 +6,7 @@ type Font = keyof typeof FONT_CODES
 
 type Decoration = keyof typeof DECORATION_CODES
 
-type Code = number[]
+type Code = readonly [number, number]
 
 type Styles = {
   font?: Font | Font[]

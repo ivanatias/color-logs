@@ -14,16 +14,16 @@ const COLOR_CODES = {
   brightMagenta: [95, 39],
   brightCyan: [96, 39],
   brightWhite: [97, 39]
-}
+} as const
 
 const FONT_CODES = {
   bold: [1, 22],
   italic: [3, 23]
-}
+} as const
 
 const DECORATION_CODES = {
   underline: [4, 24],
   strikethrough: [9, 29]
-}
+} as const
 
 export { COLOR_CODES, FONT_CODES, DECORATION_CODES }
