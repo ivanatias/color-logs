@@ -11,8 +11,11 @@ function attachStyles(
   const startColor = getANSI(colorCode[0])
   const endColor = getANSI(colorCode[1])
 
-  const [startFont, endFont] = generateFont(font)
-  const [startDecoration, endDecoration] = generateDecoration(decoration)
+  const [startFont, endFont] = generateStyle(FONT_CODES, font)
+  const [startDecoration, endDecoration] = generateStyle(
+    DECORATION_CODES,
+    decoration
+  )
 
   return (
     startFont +
@@ -25,32 +28,23 @@ function attachStyles(
   )
 }
 
-function generateFont(font: Font | Font[] | undefined) {
+function generateStyle(
+  codes: Record<string, Code>,
+  style: Decoration | Font | Font[] | undefined
+) {
   let start = ''
   let end = ''
 
-  if (font !== undefined) {
-    if (Array.isArray(font)) {
-      font.forEach(f => {
-        start += getANSI(FONT_CODES[f][0])
-        end += getANSI(FONT_CODES[f][1])
+  if (style !== undefined) {
+    if (Array.isArray(style)) {
+      style.forEach(s => {
+        start += getANSI(codes[s][0])
+        end += getANSI(codes[s][1])
       })
     } else {
-      start = getANSI(FONT_CODES[font][0])
-      end = getANSI(FONT_CODES[font][1])
+      start = getANSI(codes[style][0])
+      end = getANSI(codes[style][1])
     }
-  }
-
-  return [start, end]
-}
-
-function generateDecoration(decoration: Decoration | undefined) {
-  let start = ''
-  let end = ''
-
-  if (decoration !== undefined) {
-    start = getANSI(DECORATION_CODES[decoration][0])
-    end = getANSI(DECORATION_CODES[decoration][1])
   }
 
   return [start, end]
