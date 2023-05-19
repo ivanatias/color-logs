@@ -15,13 +15,13 @@ console.log(cl.blue('Hello, world!'))`
     title: 'Passing styles object',
     code: `import { cl } from '@ivnatsr/color-logs'
 
-console.log(cl.blue('Hello, world!'), { font: 'bold', decoration: 'underline' })
+console.log(cl.blue('Hello, world!', { font: 'bold', decoration: 'underline' }))
     
 // Or passing an array of font styles:
-console.log(cl.blue('Hello, world!'), {
+console.log(cl.blue('Hello, world!', {
   font: ['bold', 'italic'],
   decoration: 'underline'
-})`
+}))`
   }
 ]
 
