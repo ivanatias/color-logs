@@ -11,13 +11,9 @@ describe('color-logs', () => {
     })
   })
 
-  test('properties values are functions', () => {
+  test('properties values are functions that return strings', () => {
     expect(typeof cl.red).toBe('function')
-  })
-
-  test('properties values are functions that return a string', () => {
-    const result = cl.blue('Text')
-    expect(typeof result).toBe('string')
+    expect(typeof cl.red('Text')).toBe('string')
   })
 
   test('returns the expected color string', () => {
@@ -50,5 +46,12 @@ describe('color-logs', () => {
     expect(cl.brightGreen('Text', { font: ['bold', 'italic'] })).toBe(
       boldItalicText
     )
+  })
+
+  test('should not throw and use default values if invalid font or decoration is passed', () => {
+    expect(
+      // @ts-ignore
+      cl.brightGreen('Text', { font: 'invalid', decoration: '' })
+    ).toBe('\x1B[0m\x1B[0m\x1B[92mText\x1B[39m\x1B[0m\x1B[0m')
   })
 })

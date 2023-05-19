@@ -38,19 +38,19 @@ function generateStyle(
   if (style !== undefined) {
     if (Array.isArray(style)) {
       style.forEach(s => {
-        start += getANSI(codes[s][0])
-        end += getANSI(codes[s][1])
+        start += getANSI(codes[s]?.[0])
+        end += getANSI(codes[s]?.[1])
       })
     } else {
-      start = getANSI(codes[style][0])
-      end = getANSI(codes[style][1])
+      start = getANSI(codes[style]?.[0])
+      end = getANSI(codes[style]?.[1])
     }
   }
 
   return [start, end]
 }
 
-function getANSI(code: number) {
+function getANSI(code = 0) {
   return '\x1b[' + code + 'm'
 }
 
