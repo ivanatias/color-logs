@@ -1,11 +1,7 @@
 import { COLOR_CODES, FONT_CODES, DECORATION_CODES } from './codes'
 import type { Code, Color, Decoration, Font, StyleFn, Styles } from '../types'
 
-function attachStyles(
-  text: string,
-  colorCode: Code,
-  styles: Styles | undefined = {}
-) {
+function attachStyles(text: string, colorCode: Code, styles: Styles) {
   const { font, decoration } = styles
 
   const startColor = getANSI(colorCode[0])
@@ -59,7 +55,7 @@ function generateColorsObject() {
   const colorsKeys = Object.keys(COLOR_CODES) as Color[]
 
   colorsKeys.forEach(key => {
-    clObject[key] = (text, styles) =>
+    clObject[key] = (text, styles = {}) =>
       attachStyles(text, COLOR_CODES[key], styles)
   })
 
