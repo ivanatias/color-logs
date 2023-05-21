@@ -28,7 +28,7 @@ describe('color-logs', () => {
   })
 
   test('returns the expected color string with font and decoration variants', () => {
-    // const text = '\x1b[3m\x1b[4m\x1b[38;5;82mText\x1b[38;5;0m\x1b[0m\x1b[0m'  Italic, underlined, bright green text
+    // Italic, underlined, bright green text
     const text = `\x1b[${italic[0]}m\x1b[${underline[0]}m\x1b[38;5;${brightGreen[0]}m${STR}\x1b[38;5;${brightGreen[1]}m\x1b[${italic[1]}m\x1b[${underline[1]}m`
 
     expect(
@@ -37,7 +37,7 @@ describe('color-logs', () => {
   })
 
   test('returns the expected color string if font or decoration variant is missing', () => {
-    // strikethrough, bright green text
+    // Strikethrough, bright green text
     const strikeThroughText = `\x1b[${strikethrough[0]}m\x1b[38;5;${brightGreen[0]}m${STR}\x1b[38;5;${brightGreen[1]}m\x1b[${strikethrough[1]}m`
     // Bold, bright green text
     const boldText = `\x1b[${bold[0]}m\x1b[38;5;${brightGreen[0]}m${STR}\x1b[38;5;${brightGreen[1]}m\x1b[${bold[1]}m`
