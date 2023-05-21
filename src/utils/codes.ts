@@ -3,7 +3,7 @@ const COLOR_CODES = {
   green: [2, 0],
   yellow: [3, 0],
   blue: [4, 0],
-  magenta: [5, 0],
+  magenta: [201, 0],
   cyan: [6, 0],
   gray: [7, 0],
   white: [15, 0],
@@ -11,7 +11,7 @@ const COLOR_CODES = {
   brightGreen: [82, 0],
   brightYellow: [226, 0],
   brightBlue: [33, 0],
-  brightMagenta: [201, 0],
+  brightMagenta: [5, 0],
   brightCyan: [51, 0],
   brightWhite: [231, 0]
 } as const
