@@ -17,13 +17,13 @@ describe('color-logs', () => {
   })
 
   test('returns the expected color string', () => {
-    const yellowText = '\x1b[33mText\x1b[89m'
+    const yellowText = '\x1b[38;5;3mText\x1b[38;5;0m'
 
     expect(cl.yellow('Text')).toBe(yellowText)
   })
 
   test('returns the expected color string with font and decoration variants', () => {
-    const text = '\x1b[3m\x1b[4m\x1b[92mText\x1b[39m\x1b[24m\x1b[23m' // Italic, underlined, bright green text
+    const text = '\x1b[3m\x1b[4m\x1b[38;5;82mText\x1b[38;5;0m\x1b[0m\x1b[0m' // Italic, underlined, bright green text
 
     expect(
       cl.brightGreen('Text', { font: 'italic', decoration: 'underline' })
@@ -31,8 +31,8 @@ describe('color-logs', () => {
   })
 
   test('returns the expected color string if font or decoration variant is missing', () => {
-    const strikeThroughText = '\x1b[9m\x1b[92mText\x1b[39m\x1b[29m' // strikethrough, bright green text
-    const boldText = '\x1b[1m\x1b[92mText\x1b[39m\x1b[22m' // Bold, bright green text
+    const strikeThroughText = '\x1b[9m\x1b[38;5;82mText\x1b[38;5;0m\x1b[0m' // strikethrough, bright green text
+    const boldText = '\x1b[1m\x1b[38;5;82mText\x1b[38;5;0m\x1b[0m' // Bold, bright green text
 
     expect(cl.brightGreen('Text', { decoration: 'strikethrough' })).toBe(
       strikeThroughText
@@ -41,7 +41,8 @@ describe('color-logs', () => {
   })
 
   test('returns the expected color string if passed an array of font styles', () => {
-    const boldItalicText = '\x1b[1m\x1b[3m\x1b[92mText\x1b[39m\x1b[22m\x1b[23m' // Bold, italic bright green text
+    const boldItalicText =
+      '\x1b[1m\x1b[3m\x1b[38;5;82mText\x1b[38;5;0m\x1b[0m\x1b[0m' // Bold, italic bright green text
 
     expect(cl.brightGreen('Text', { font: ['bold', 'italic'] })).toBe(
       boldItalicText
@@ -52,6 +53,6 @@ describe('color-logs', () => {
     expect(
       // @ts-ignore
       cl.brightGreen('Text', { font: 'invalid', decoration: '' })
-    ).toBe('\x1B[0m\x1B[0m\x1B[92mText\x1B[39m\x1B[0m\x1B[0m')
+    ).toBe('\x1B[0m\x1B[0m\x1b[38;5;82mText\x1b[38;5;0m\x1B[0m\x1B[0m')
   })
 })

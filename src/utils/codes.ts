@@ -1,29 +1,29 @@
 const COLOR_CODES = {
-  blue: [34, 89],
-  yellow: [33, 89],
-  red: [31, 89],
-  cyan: [36, 89],
-  green: [32, 89],
-  magenta: [35, 89],
-  white: [37, 89],
-  gray: [30, 89],
-  brightRed: [91, 39],
-  brightGreen: [92, 39],
-  brightYellow: [93, 39],
-  brightBlue: [94, 39],
-  brightMagenta: [95, 39],
-  brightCyan: [96, 39],
-  brightWhite: [97, 39]
+  red: [1, 0],
+  green: [2, 0],
+  yellow: [3, 0],
+  blue: [4, 0],
+  magenta: [5, 0],
+  cyan: [6, 0],
+  gray: [7, 0],
+  white: [15, 0],
+  brightRed: [196, 0],
+  brightGreen: [82, 0],
+  brightYellow: [226, 0],
+  brightBlue: [33, 0],
+  brightMagenta: [201, 0],
+  brightCyan: [51, 0],
+  brightWhite: [231, 0]
 } as const
 
 const FONT_CODES = {
-  bold: [1, 22],
-  italic: [3, 23]
+  bold: [1, 0],
+  italic: [3, 0]
 } as const
 
 const DECORATION_CODES = {
-  underline: [4, 24],
-  strikethrough: [9, 29]
+  underline: [4, 0],
+  strikethrough: [9, 0]
 } as const
 
 export { COLOR_CODES, FONT_CODES, DECORATION_CODES }

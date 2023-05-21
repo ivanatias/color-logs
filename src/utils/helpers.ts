@@ -4,8 +4,8 @@ import type { Code, Color, Decoration, Font, StyleFn, Styles } from '../types'
 function attachStyles(text: string, colorCode: Code, styles: Styles) {
   const { font, decoration } = styles
 
-  const startColor = getANSI(colorCode[0])
-  const endColor = getANSI(colorCode[1])
+  const startColor = getANSI(colorCode[0], true)
+  const endColor = getANSI(colorCode[1], true)
 
   const [startFont, endFont] = generateStyle(FONT_CODES, font)
   const [startDecoration, endDecoration] = generateStyle(
@@ -46,7 +46,8 @@ function generateStyle(
   return [start, end]
 }
 
-function getANSI(code = 0) {
+function getANSI(code = 0, isColor = false) {
+  if (isColor) return '\x1b[38;5;' + code + 'm'
   return '\x1b[' + code + 'm'
 }
 
