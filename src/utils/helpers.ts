@@ -47,8 +47,7 @@ function generateStyle(
 }
 
 function getANSI(code = 0, isColor = false) {
-  if (isColor) return '\x1b[38;5;' + code + 'm'
-  return '\x1b[' + code + 'm'
+  return `\x1b[${isColor ? '38;5;' : ''}${code}m`
 }
 
 function generateColorsObject() {
