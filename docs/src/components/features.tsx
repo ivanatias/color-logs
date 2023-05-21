@@ -2,55 +2,55 @@ const SUPPORTED_STYLES = {
   colors: [
     {
       name: 'Blue',
-      className: 'bg-blue-500'
+      className: 'bg-blue-400'
     },
     {
       name: 'Yellow',
-      className: 'bg-yellow-500'
+      className: 'bg-yellow-200'
     },
     {
       name: 'Red',
-      className: 'bg-red-500'
+      className: 'bg-red-400'
     },
     {
       name: 'Cyan',
-      className: 'bg-cyan-500'
+      className: 'bg-cyan-400'
     },
     {
       name: 'Green',
-      className: 'bg-green-500'
+      className: 'bg-green-200'
     },
     {
       name: 'Magenta',
-      className: 'bg-fuchsia-500'
+      className: 'bg-fuchsia-600'
     },
     {
       name: 'White',
-      className: 'bg-white'
+      className: 'bg-gray-100'
     },
     {
       name: 'Gray',
-      className: 'bg-gray-500'
+      className: 'bg-gray-400'
     },
     {
       name: 'Bright red',
-      className: 'bg-red-300'
+      className: 'bg-red-500'
     },
     {
       name: 'Bright green',
-      className: 'bg-green-300'
+      className: 'bg-green-400'
     },
     {
       name: 'Bright yellow',
-      className: 'bg-yellow-300'
+      className: 'bg-yellow-400'
     },
     {
       name: 'Bright blue',
-      className: 'bg-blue-300'
+      className: 'bg-blue-600'
     },
     {
       name: 'Bright magenta',
-      className: 'bg-fuchsia-300'
+      className: 'bg-fuchsia-500'
     },
     {
       name: 'Bright cyan',
@@ -58,7 +58,7 @@ const SUPPORTED_STYLES = {
     },
     {
       name: 'Bright white',
-      className: 'bg-gray-100'
+      className: 'bg-white'
     }
   ],
   fonts: [
